@@ -1,0 +1,13 @@
+[project]
+name = "idr-sandbox"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "omero-py>=5.22.1",
+]
+[tool.uv]
+override-dependencies = [
+    "zeroc-ice; python_version < '1.0'"
+]
