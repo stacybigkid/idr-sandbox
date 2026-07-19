@@ -3,11 +3,19 @@ name = "idr-sandbox"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = "~=3.10.0"
 dependencies = [
+    "idr-py>=0.4.2",
+    "ipykernel>=7.3.0",
+    "matplotlib>=3.10.9",
     "omero-py>=5.22.1",
+    "zeroc-ice==3.6.5",
 ]
-[tool.uv]
-override-dependencies = [
-    "zeroc-ice; python_version < '1.0'"
+
+[tool.uv.sources]
+zeroc-ice = [
+    { url = "https://github.com/glencoesoftware/zeroc-ice-py-macos-universal2/releases/download/20240131/zeroc_ice-3.6.5-cp310-cp310-macosx_11_0_universal2.whl", marker = "sys_platform == 'darwin'" },
+    { url = "https://github.com/glencoesoftware/zeroc-ice-py-linux-x86_64/releases/download/20240202/zeroc_ice-3.6.5-cp310-cp310-manylinux_2_28_x86_64.whl", marker = "sys_platform == 'linux' and platform_machine == 'x86_64'" },
+    { url = "https://github.com/glencoesoftware/zeroc-ice-py-linux-aarch64/releases/download/20240620/zeroc_ice-3.6.5-cp310-cp310-manylinux_2_28_aarch64.whl", marker = "sys_platform == 'linux' and platform_machine == 'aarch64'" },
+    { url = "https://github.com/glencoesoftware/zeroc-ice-py-win-x86_64/releases/download/20240325/zeroc_ice-3.6.5-cp310-cp310-win_amd64.whl", marker = "sys_platform == 'win32'" },
 ]
